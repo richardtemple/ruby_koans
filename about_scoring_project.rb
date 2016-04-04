@@ -35,20 +35,21 @@ def score(dice)
    # Ones
   score += dice.count(1) * 100 if dice.count(1) < 3
   score += 1000 if dice.count(1) >= 3
-  score += (dice.count(1)-3) * 100 if dice.count(1)>3
+  score += (dice.count(1)-3) * 100 if dice.count(1) > 3
 
   # special 5s
   score += dice.count(5) * 50 if dice.count(5) < 3
-  score += (dice.count(5)-3) * 50 if dice.count(5)>3
+  score += (dice.count(5)-3) * 50 if dice.count(5) > 3
 
   # normal scoring
+
   # score += 200 if dice.count(2) > 2
   # score += 300 if dice.count(3) > 2
   # score += 400 if dice.count(4) > 2
   # score += 500 if dice.count(5) > 2
   # score += 600 if dice.count(6) > 2
 
-  # dry a bit
+  # normal scoring DRYer
   (2..6).each do |num|
     score += num * 100 if dice.count(num) > 2
   end
